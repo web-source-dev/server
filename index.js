@@ -8,8 +8,12 @@ const app = express();
 
 // Middleware
 app.use(express.json());  // Parse incoming JSON requests
-app.use(cors());  // Enable CORS for all routes
-
+const allowedOrigins = ['https://client-delta-taupe.vercel.app']; // Add your frontend URL here
+app.use(cors({
+  origin: allowedOrigins,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 // MongoDB Connection using Mongoose
 const connectDB = async () => {
   try {
