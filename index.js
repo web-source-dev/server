@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config();
 
+const path = require('path');
+
 // Initialize app
 const app = express();
 
@@ -14,6 +16,9 @@ app.use(cors({
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
+
+
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 // MongoDB Connection using Mongoose
 const connectDB = async () => {
   try {
