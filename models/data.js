@@ -2,14 +2,18 @@
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
-  name: {
+ name: {
     type: String,
     required: true,
   },
   email: {
     type: String,
-    required: true,
-    unique: true,
+  },
+  work_email: {
+    type: String,
+  },
+  organization: {
+    type: String,
   },
   phone: {
     type: String,
@@ -19,9 +23,25 @@ const userSchema = new mongoose.Schema({
     type: String,
     required:true
   },
+  youtube_url: {
+    type: String,
+  },
+  facebook_url:{
+    type: String,
+  },
+  linkden_url: {
+    type: String,
+},
+  twitter_url: {
+    type: String,
+  },
   isAllowed :{
     type: Boolean,
     default : true
+  },
+  profileImage :{
+    type: String,
+    required: true
   }
 });
 
